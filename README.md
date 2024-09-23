@@ -59,9 +59,45 @@ where you need need to specify as input variables (in the main()):
 
 These variables are important for configuring the script to process the corpus data correctly, interact with the language model API efficiently, and output the desired information in an organized manner.
 	
+## Diseases and Countries Dictionaries creation 
+
+Execute the script to enrich and populate dictionaries for viruses and countries by computing embeddings for terms, comparing them using cosine similarity, and merging similar terms to create an expanded dictionary; it processes CSV files containing the extracted information to enhance some seed dictionaries and outputs new, enriched dictionaries:
+
+```python llm_extraction_Dictionary_Deployment.py``
+
+where you need need to specify as input variables (in the main()):
+
+1. *COSINE_THRESHOLD_VIRUS*: The cosine similarity threshold for virus terms, above which terms are considered similar enough to be merged in the virus dictionary.
+
+2. *COSINE_THRESHOLD_COUNTRY*: The cosine similarity threshold for country terms, above which terms are considered similar enough to be merged in the country dictionary.
+
+3. *input_specify*: A Path object that specifies the directory path where the input CSV files containing annotations are located and which also informs the directory for outputting the new dictionaries.
+
+4. *LIST_FILES*: A list of file paths to CSV files that contain annotations for viruses and countries extracted from text. These files will be used to enrich the seed dictionaries.
+
+5. *model_All*: An instance of SentenceTransformer initialized with a specific pre-trained model, used to compute embeddings for all terms.
+
+6. *model_biobert*: An instance of SentenceTransformer initialized with a BioBERT pre-trained model, used to compute embeddings for biological terms.
+
+7. *tokenizer_transformers_bio*: A tokenizer from the Hugging Face transformers library, associated with the BioBERT model, used for tokenizing biological terms.
+
+8. *model_transformers_bio*: A BioBERT model from the Hugging Face transformers library, used to compute embeddings for biological terms.
+
+9. *somesyn_filename_Virus*: The file path to a seed CSV file containing a list of known virus terms. These terms will be used to create an initial virus dictionary.
+
+10. *somesyn_filename_Country*: The file path to a seed CSV file containing a list of known country terms. These terms will be used to create an initial country dictionary.
+
+11. *DictList_syn_Virus_SEED*: A list of lists containing the virus seed terms loaded from somesyn_filename_Virus, structured to facilitate the processing of embeddings.
+
+12. *DictList_syn_Country_SEED*: A list of lists containing the country seed terms loaded from somesyn_filename_Country, structured to facilitate the processing of embeddings.
+
+These input variablesdetermine the sources of initial data, the models used for embedding generation, the similarity thresholds for term merging, and the locations where enriched dictionaries will be saved.
 
 
-## Citations:
+
+
+
+### Citations:
 
 If you use this package, we encourage you to add the following references:
 
@@ -70,7 +106,7 @@ If you use this package, we encourage you to add the following references:
 - [dataset] European Commission, Joint Research Centre (JRC). Epidemic Information Extraction from WHO Disease Outbreak News, European Data Portal, Joint Research Centre Data Catalogue, https://doi.org/10.2905/89056048-7f5d-4d7c-96ad-f99d1c0f6601 (2024). PID: http://data.jrc.ec.europa.eu/dataset/89056048-7f5d-4d7c-96ad-f99d1c0f6601 
 
 
-## References:
+### References:
 
 - Auer, S. et al. Towards a Knowledge Graph for Science. In Proceedings of the 8th International Conference on Web Intelligence, Mining and Semantics, WIMS ’18 (Association for Computing Machinery, New York, NY, USA, 2018)
 
