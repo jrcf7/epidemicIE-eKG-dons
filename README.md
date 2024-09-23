@@ -36,7 +36,7 @@ Execute the script to process a corpus of pickled documents, extract epidemic-re
 python Extractor_Deployment.py
 ```
 
-where you need need to specify as input variables (in the main()):
+where you need need to specify as input variables in the main():
 
 1. *MAX_TOKENS_PROMPT*: The maximum number of tokens that the language model prompt can contain. This limit depends on the capabilities of the specific language model being used.
 
@@ -72,7 +72,7 @@ Execute the script to enrich and populate dictionaries for viruses and countries
 python llm_extraction_Dictionary_Deployment.py
 ```
 
-where you need need to specify as input variables (in the main()):
+where you need need to specify as input variables in the main():
 
 1. *COSINE_THRESHOLD_VIRUS*: The cosine similarity threshold for virus terms, above which terms are considered similar enough to be merged in the virus dictionary.
 
@@ -108,7 +108,7 @@ Execute the script perform the ensemble computation using data from multiple CSV
 python llm_extraction_majorityVoting_Deployment.py
 ```
 
-where you need need to specify as input variables (in the main()):
+where you need need to specify as input variables in the main():
 
 1. *LIST_FILES*: A list of file paths to CSV files containing annotations from different models, which the script will process.
 2. *input_dir*: The directory path where the input CSV files are located.
