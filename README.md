@@ -21,12 +21,16 @@ The [Protègè](http://protege.stanford.edu) editor is needed to manage, adjust 
 
 ## Installation
 
+Create a Python environment from file epidemicIE-env.yml containing all needed libraries:
+``` bash
+conda env create -f epidemicIE-env.yml
+``` 
 
 ## Citations:
 
 If you use this package, we encourage you to add the following references:
 
-- Consoli, S. ...
+- Consoli, S. et al. An Epidemic Knowledge Graph extracted from the World Health Organization's Disease Outbreak News. Scientific Data, submitted.
   
 - [dataset] European Commission, Joint Research Centre (JRC). Epidemic Information Extraction from WHO Disease Outbreak News, European Data Portal, Joint Research Centre Data Catalogue, https://doi.org/10.2905/89056048-7f5d-4d7c-96ad-f99d1c0f6601 (2024). PID: http://data.jrc.ec.europa.eu/dataset/89056048-7f5d-4d7c-96ad-f99d1c0f6601 
 
