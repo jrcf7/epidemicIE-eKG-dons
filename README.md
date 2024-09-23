@@ -25,7 +25,10 @@ Create a Python environment from file **epidemicIE-env.yml** containing all need
 ``` bash
 conda env create -f epidemicIE-env.yml
 ```
-## Extraction process 
+
+## Scripts execution
+
+### Extraction process 
 
 Execute the script to process a corpus of pickled documents, extract epidemic-related information using a chosen language model, and save the results:
 
@@ -59,7 +62,7 @@ where you need need to specify as input variables (in the main()):
 
 These variables are important for configuring the script to process the corpus data correctly, interact with the language model API efficiently, and output the desired information in an organized manner.
 	
-## Diseases and Countries Dictionaries creation 
+### Diseases and Countries Dictionaries creation 
 
 Execute the script to enrich and populate dictionaries for viruses and countries by computing embeddings for terms, comparing them using cosine similarity, and merging similar terms to create an expanded dictionary; it processes CSV files containing the extracted information to enhance some seed dictionaries and outputs new, enriched dictionaries:
 
@@ -93,8 +96,20 @@ where you need need to specify as input variables (in the main()):
 
 These input variablesdetermine the sources of initial data, the models used for embedding generation, the similarity thresholds for term merging, and the locations where enriched dictionaries will be saved.
 
+### Ensemble computation 
 
+Execute the script perform the ensemble computation using data from multiple CSV files. It aggregates and consolidates extracted information about virus outbreaks, such as names of viruses, affected countries, dates, case numbers, and death tolls, by applying majority voting across different model outputs. The consolidated information by majority voting are placed in a single output CSV file.
 
+```python llm_extraction_majorityVoting_Deployment.py``
+
+where you need need to specify as input variables (in the main()):
+
+1. *LIST_FILES*: A list of file paths to CSV files containing annotations from different models, which the script will process.
+2. *input_dir*: The directory path where the input CSV files are located.
+3. *week_abbreviations*: A list of abbreviated weekday names, used for date parsing.
+4. *month_abbreviations*: A list of abbreviated month names, used for date parsing.
+5. *DictList_syn_Virus*: A list of virus synonyms loaded from a CSV file, used for normalizing virus names.
+6. *DictList_syn_Country*: A list of country synonyms loaded from a CSV file, used for normalizing country names.
 
 
 ### Citations:
