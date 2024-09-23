@@ -21,15 +21,45 @@ The [Protègè](http://protege.stanford.edu) editor is needed to manage, adjust 
 
 ## Installation
 
-Create a Python environment from file epidemicIE-env.yml containing all needed libraries:
+Create a Python environment from file **epidemicIE-env.yml** containing all needed libraries:
 ``` bash
 conda env create -f epidemicIE-env.yml
 ```
-### Extraction process 
+## Extraction process 
 
-Go to **/src/extraction/** and execute:
+Execute the script to process a corpus of pickled documents, extract epidemic-related information using a chosen language model, and save the results:
 
-1. ```python data_preparation_dygiepp.py``
+```python Extractor_Deployment.py``
+
+where you need need to specify as input variables (in the main()):
+
+1. *MAX_TOKENS_PROMPT*: The maximum number of tokens that the language model prompt can contain. This limit depends on the capabilities of the specific language model being used.
+
+2. *TOKENS_TOLERANCE*: A buffer number of tokens reserved for "InContextExamples" or other components of the prompt, ensuring the total token count doesn't exceed the model's maximum allowed tokens.
+
+3. *USE_CACHE*: A boolean value indicating whether to use cached results to avoid repeated calls to the language model API for the same input, which can save time and API usage.
+
+4. *DATE_IMPUTATION*: A boolean value indicating whether to attempt to impute dates for the cases mentioned in the corpus documents.
+
+5. *JSON_RECONSTRUCT*: A boolean value indicating whether to attempt to reconstruct the JSON output obtained from the language model if it's not properly formatted.
+
+6. *service_provider*: A string specifying the service provider for the language model API, such as "openai" or "gptjrc".
+
+7. *model_name*: A string specifying the name of the language model used for processing the documents, which determines the model's capabilities and token limits.
+
+8. *temperature_value*: A floating-point number used to set the "temperature" for the language model's responses, affecting the randomness and creativity of the output.
+
+9. *InContextExamples*: A list of examples provided as context to the language model to guide its output. The examples can influence the responses to be more in line with the desired format or content.
+
+10. *input_specify*: A Path object specifying the directory where the input corpus files are located and which will also be used to determine the output log and CSV file locations.
+
+11. *cache_name*: A string specifying the filename for the cache, which is used to store and retrieve previous responses from the language model to avoid redundant API calls.
+
+12. *load_map_query_input_output*: A dictionary used to map input queries to their corresponding outputs, which is part of the caching mechanism.
+
+These variables are important for configuring the script to process the corpus data correctly, interact with the language model API efficiently, and output the desired information in an organized manner.
+	
+
 
 ## Citations:
 
