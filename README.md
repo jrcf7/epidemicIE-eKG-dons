@@ -32,7 +32,9 @@ conda env create -f epidemicIE-env.yml
 
 Execute the script to process a corpus of pickled documents, extract epidemic-related information using a chosen language model, and save the results:
 
-```python Extractor_Deployment.py``
+``` bash
+python Extractor_Deployment.py
+```
 
 where you need need to specify as input variables (in the main()):
 
@@ -66,7 +68,9 @@ These variables are important for configuring the script to process the corpus d
 
 Execute the script to enrich and populate dictionaries for viruses and countries by computing embeddings for terms, comparing them using cosine similarity, and merging similar terms to create an expanded dictionary; it processes CSV files containing the extracted information to enhance some seed dictionaries and outputs new, enriched dictionaries:
 
-```python llm_extraction_Dictionary_Deployment.py``
+``` bash
+python llm_extraction_Dictionary_Deployment.py
+```
 
 where you need need to specify as input variables (in the main()):
 
@@ -100,7 +104,9 @@ These input variablesdetermine the sources of initial data, the models used for 
 
 Execute the script perform the ensemble computation using data from multiple CSV files. It aggregates and consolidates extracted information about virus outbreaks, such as names of viruses, affected countries, dates, case numbers, and death tolls, by applying majority voting across different model outputs. The consolidated information by majority voting are placed in a single output CSV file.
 
-```python llm_extraction_majorityVoting_Deployment.py``
+``` bash
+python llm_extraction_majorityVoting_Deployment.py
+```
 
 where you need need to specify as input variables (in the main()):
 
