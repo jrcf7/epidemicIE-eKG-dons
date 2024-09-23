@@ -1,5 +1,5 @@
 # epidemicIE-eKG-dons
-The repository contains the scripts for Epidemic Information Extraction from the World Health Organization (WHO) Disease Outbreak News ([DONs](https://www.who.int/emergencies/disease-outbreak-news)) with an *Ensemble* of open-souce Large Language Models (LLMs), namely [*Mistral-7B-OpenOrca*](https://huggingface.co/Open-Orca/Mistral-7B-OpenOrca), [*Meta-Llama-3-70B-Instruct*](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct), and [*Zephyr-7B-Beta*](https://huggingface.co/HuggingFaceH4/Zephyr-7B-Beta).
+This repository contains the scripts for Epidemic Information Extraction from the World Health Organization (WHO) Disease Outbreak News ([DONs](https://www.who.int/emergencies/disease-outbreak-news)) with an *Ensemble* of open-souce Large Language Models (LLMs), namely [*Mistral-7B-OpenOrca*](https://huggingface.co/Open-Orca/Mistral-7B-OpenOrca), [*Meta-Llama-3-70B-Instruct*](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct), and [*Zephyr-7B-Beta*](https://huggingface.co/HuggingFaceH4/Zephyr-7B-Beta).
 
 The method focuses on extracting and structuring critical epidemic information from DONs using the ensemble of LLMs. The extracted information includes disease names, involved countries, dates of events, case totals, and mortality figures. This information is made publicly available through a dataset updated daily, adhering to FAIR (Findable, Accessible, Interoperable, and Reusable) principles and following the paradigms of Linked Open Data (LOD).
 The approach involves creating an Epidemic Knowledge Graph (eKG) from the WHO DONs to offer a nuanced representation of the public health domain, providing a structured, interconnected, and formalized framework integrating the extracted epidemic information. The eKG is derived using Semantic Web technologies, such as RDF (Resource Description Framework) and OWL (Web Ontology Language), and is updated daily through an automated process.
@@ -24,7 +24,12 @@ The [Protègè](http://protege.stanford.edu) editor is needed to manage, adjust 
 Create a Python environment from file epidemicIE-env.yml containing all needed libraries:
 ``` bash
 conda env create -f epidemicIE-env.yml
-``` 
+```
+### Extraction process 
+
+Go to **/src/extraction/** and execute:
+
+1. ```python data_preparation_dygiepp.py``
 
 ## Citations:
 
